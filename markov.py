@@ -1,10 +1,12 @@
 from csv import DictReader, reader
 import json
 from datetime import date, time, datetime
+import numpy as np # for matrix multiplication
+import itertools
+from collections import OrderedDict
+
 
 # A function to check if date is within desired range.
-# In this case, we check whether date is in 
-# September, October, or November
 def is_within_date_range(date):
     month = int(date[5:7])
     date = int(date[8:10])
@@ -46,7 +48,7 @@ def classify_weather_info(weather_info):
                 state += f"5 < {param} <= 10; "
             else:
                 state += f"10 < {param}; "
-    return state + "| "
+    return state
 
 def insert_into_markov_model(markov_model, current_state, next_state):
     if current_state in markov_model:
@@ -59,9 +61,9 @@ def insert_into_markov_model(markov_model, current_state, next_state):
 
 # Requirements: "file_path" must be a csv file, "params" must be an iterable
 # Possible values for "params":
-# date,tavg,tmin,tmax,prcp,wspd
+# tavg,tmin,tmax,prcp,wspd
 def make_markov_model(file_path, params, n_gram):
-    markov_model = {}
+    raw_frequencies = {}
     with open(file_path, 'r') as csv_file:
         csv_reader = DictReader(csv_file)
         # skip first line
@@ -80,20 +82,34 @@ def make_markov_model(file_path, params, n_gram):
                 next_state += classify_weather_info(weather_info)
                 len_next += 1
             else:
-                insert_into_markov_model(markov_model, current_state, next_state)
+                insert_into_markov_model(raw_frequencies, current_state, next_state)
                 current_state = ""
                 len_curr = 0
                 next_state = ""
                 len_next = 0
 
-    for curr in markov_model:
-        total = 0
-        for future in markov_model[curr]:
-            total += markov_model[curr][future]
-        for future in markov_model[curr]:
-            markov_model[curr][future] /= total
+    # a model that holds pr(transitioning into state A | currently in state B)
+    markov_model = {}
+    # a generic model that holds pr(transitioning into state A)
+    generic_probabilities = {}
 
-    return markov_model
+    total = 0
+    for curr in raw_frequencies:
+        markov_model[curr] = {}
+        sub_total = 0
+        for future in raw_frequencies[curr]:
+            sub_total += raw_frequencies[curr][future]
+            total += raw_frequencies[curr][future]
+        for future in raw_frequencies[curr]:
+            markov_model[curr][future] = raw_frequencies[curr][future] / sub_total
+            if future in generic_probabilities:
+                generic_probabilities[future] += raw_frequencies[curr][future]
+            else:
+                generic_probabilities[future] = raw_frequencies[curr][future]
+    for possibility in generic_probabilities:
+        generic_probabilities[possibility] /= total
+
+    return markov_model, generic_probabilities
 
 def print_markov_model(model):
     for state in model:
@@ -104,10 +120,72 @@ def print_markov_model(model):
 
 def save_markov_model(model):
     with open(f"data/pre_built_models/model_created_on_{date.today()}_{datetime.now().time()}.json", 'w', encoding='utf-8') as f: 
-        json.dump(model, f, ensure_ascii=False, indent=4)
+        json.dump(model, f, ensure_ascii=False, indent=4) 
 
+# construct a python vector containing all potential weather conditions 
+# (each weather condition represents a state of the Markov chain) that
+# can be constructed as combinations of the possible values of the given parameters 
+def construct_states_vector_template(params):
+    vec = []
+    param_values = {
+        "tavg" : ["18 < tavg <= 25; ", "tavg <= 18; ", "25 < tavg; "],
+        "tmin" : ["18 < tmin <= 25; ", "tmin <= 18; ", "25 < tmin; "],
+        "tmax" : ["18 < tmax <= 25; ", "tmax <= 18; ", "25 < tmax; "],
+        "prcp" : ["prcp == 0; ", "0 < prcp <= 5; ", "5 < prcp <= 10; ", "10 < prcp; "],
+        "wspd" : ["wspd == 0; ", "0 < wspd <= 5; ", "5 < wspd <= 10; ", "10 < wspd; "]
+    }
+    param_values = [param_values[param] for param in params]
+    combinations = ["".join(combo) for combo in itertools.product(*param_values)]
+    
+    return combinations
+
+# without considering the current state, constructs a vector
+# containing the probability of entering each state in model 
+# from an unknown current state
+# put simply, whereas a Markov chain considers the p(entering some state A | we're in state B), 
+# the following function computes p(entering some state A).
+# These generic probabilities will be used for states in 
+# the Markov chain which have never been observed in the sample data. 
+def construct_generic_probability_vector(generic_model, all_possibilities):
+    vec = []
+    for possibility in all_possibilities:
+        if possibility in generic_model:
+            vec.append(generic_model[possibility])
+        else:
+            vec.append(0)
+    return np.array(vec)
+
+# construct a numpy vector containing probabilities of all possible weather conditions 
+# that can occur after the given state.
+# If a given state was never observed in the training data, the generic vector will be used.
+# all_possibilities must be a vector constructed using "construct_states_vector_template(params)"
+def construct_state_probability_vector(markov_model, all_possibilities, state, generic_vector):
+    vec = []
+    if state in markov_model:
+        probabilities = markov_model[state]
+        for possibility in all_possibilities:
+            if possibility in probabilities:
+                vec.append(markov_model[state][possibility])
+            else:
+                vec.append(0)
+        return np.array(vec)
+    else:
+        return generic_vector
+
+def construct_transition_matrix(markov_model, all_possibilities, generic_vector):
+    col_vecs = []
+    for possibility in all_possibilities:
+        vec = construct_state_probability_vector(markov_model, all_possibilities, possibility, generic_vector)
+        col_vecs.append(vec)
+    return np.column_stack(col_vecs)
 
 if __name__ == "__main__":
-    # to access "date" parameter, use "\ufeffdate"
-    model = make_markov_model("data/san_jose_weather.csv", ["tavg", "prcp", "wspd"], 1)
-    save_markov_model(model)
+    params = ["tavg", "prcp", "wspd"]
+    model, generic_model = make_markov_model("data/san_jose_weather.csv", params, 1)
+    
+    all_possibilities = construct_states_vector_template(params)
+    generic_vector = construct_generic_probability_vector(generic_model, all_possibilities)
+    transition_m = construct_transition_matrix(model, all_possibilities, generic_vector)
+
+
+    # save_markov_model(model)
