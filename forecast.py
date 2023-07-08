@@ -67,21 +67,24 @@ in the sampled data (San Jose weather data from 2014 to 2022), some state
 transition probabilities are zero. This becomes problematic if there is a 
 need to compute probabilities for data points unobserved in the sample. To 
 counter this, a Laplace smoothing could be used, but that would assume a 
-uniform distribution of state probabilities. With weather, we know that's 
-not the case, so I instead used a form of smoothing somewhat similar in principle 
-to the Maximum Likelihood Estimation (MLE), where for any unobserved state the 
-model assumes that the state transition probabilities are identical to those found 
-in the sample itself (hence maximizing the joint-likelihood function). 
+uniform distribution of state probabilities. With weather, we know that's not 
+the case, so I instead used a form of smoothing somewhat similar in principle 
+to the Maximum Likelihood Estimation (MLE), where for any unobserved state 
+the probabilities of transitioning into some next state are determined
+simply based on the distribution of those states in the sample itself (hence 
+maximizing the joint-likelihood function). 
 
 Using more parameters at once means juggling more theoretically possible 
 weather conditions, which makes the model that much more dependent on the 
-smoothing function described above. For example, if all possible parameters of 
+mechanism described above. For example, if all possible parameters of 
 this model are used, there are 216 theoretically possible weather states, but only 
 34 weather states have actually been observed in the sample data. Because the 
-resulting transition matrix is sparse, more column vectors use the smoothing vector
-and thus have identical transition probabilities. As a result, when making long-run
-predictions the model decays into a stagnant state (a state where there is little
-potential for transition into another state) more quickly.
+resulting transition matrix is sparse, more column vectors use the "generic" vector
+(the vector whose state transition probabilities mirror the sample's
+distribution) and thus have identical transition probabilities. As a result, 
+when making long-run predictions the model decays into a stagnant state 
+(a state where there is little potential for transition into another state) 
+more quickly.
 """
 
     text = """
