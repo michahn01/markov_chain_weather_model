@@ -3,7 +3,6 @@ import json
 from datetime import date, time, datetime
 import numpy as np # for matrix multiplication
 import itertools
-from collections import OrderedDict
 
 
 # A function to check if date is within desired range.
