@@ -20,30 +20,42 @@ def classify_weather_info(weather_info):
     for param, value in weather_info:
         if param == "\ufeffdate": 
             state += value[5:7] + "; "
-        elif param == "tavg" or param == "tmin" or param == "tmax":
+        elif param == "tavg" or param == "tmax" or param == "tmin":
             try:
                 value = float(value)
             except:
                 # if temperature data somehow missing, assume typical weather
-                state += f"18 < {param} <= 25; "
+                if param == "tmin":
+                    state += f"18 < {param}; "
+                else:
+                    state += f"18 < {param} <= 25; "
                 continue
             if value <= 18:
                 state += f"{param} <= 18; "
             elif value <= 25:
-                state += f"18 < {param} <= 25; "
+                if param == "tmin":
+                    state += f"18 < {param}; "
+                else:
+                    state += f"18 < {param} <= 25; "
             else:
-                state += f"25 < {param}; "
+                if param == "tmin":
+                    state += f"18 < {param}; "
+                else:
+                    state += f"25 < {param}; "
         elif param == "prcp" or param == "wspd":
             try:
                 value = float(value)
             except:
                 # if temperature data somehow missing, assume no rain or moderate wind
-                state += f"{param} == 0; " if param == "prcp" else f"0 < {param} <= 5; "
+                state += f"{param} == 0; " if param == "prcp" else f"{param} <= 5; "
                 continue
-            if value == 0:
+            if value == 0 and param == "prcp":
                 state += f"{param} == 0; "
             elif value <= 5:
-                state += f"0 < {param} <= 5; "
+                if param == "prcp":
+                    state += f"0 < {param} <= 5; "
+                else:
+                    state += f"{param} <= 5; "
             elif value <= 10:
                 state += f"5 < {param} <= 10; "
             else:
@@ -129,10 +141,10 @@ def construct_states_vector_template(params):
     vec = []
     param_values = {
         "tavg" : ["18 < tavg <= 25; ", "tavg <= 18; ", "25 < tavg; "],
-        "tmin" : ["18 < tmin <= 25; ", "tmin <= 18; ", "25 < tmin; "],
+        "tmin" : ["tmin <= 18; ", "18 < tmin; "],
         "tmax" : ["18 < tmax <= 25; ", "tmax <= 18; ", "25 < tmax; "],
         "prcp" : ["prcp == 0; ", "0 < prcp <= 5; ", "5 < prcp <= 10; ", "10 < prcp; "],
-        "wspd" : ["wspd == 0; ", "0 < wspd <= 5; ", "5 < wspd <= 10; ", "10 < wspd; "]
+        "wspd" : ["wspd <= 5; ", "5 < wspd <= 10; ", "10 < wspd; "]
     }
     param_values = [param_values[param] for param in params]
     combinations = ["".join(combo) for combo in itertools.product(*param_values)]
@@ -180,12 +192,21 @@ def construct_transition_matrix(markov_model, all_possibilities, generic_vector)
     return np.column_stack(col_vecs)
 
 if __name__ == "__main__":
-    params = ["tavg", "prcp", "wspd"]
+    params = ["tavg", "tmax", "tmin", "prcp", "wspd"]
     model, generic_model = make_markov_model("data/san_jose_weather.csv", params, 1)
     
     all_possibilities = construct_states_vector_template(params)
     generic_vector = construct_generic_probability_vector(generic_model, all_possibilities)
-    transition_m = construct_transition_matrix(model, all_possibilities, generic_vector)
+    transition_matrix = construct_transition_matrix(model, all_possibilities, generic_vector)
+    column_sums = np.sum(transition_matrix, axis=0)
+    # print(column_sums)
+    # print(np.sum(generic_model))
 
-
-    # save_markov_model(model)
+    # import random
+    # random_curr = model[random.choice(list(model.keys()))]
+    # random_state = random_curr[random.choice(list(random_curr.keys()))]
+    # print(sum([val for key, val in random_curr.items()]))
+    # statevec = construct_state_probability_vector(model, all_possibilities, random_state, generic_vector)
+    # print(sum(statevec))
+    
+    save_markov_model(model)

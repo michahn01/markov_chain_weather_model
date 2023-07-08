@@ -1,255 +1,255 @@
 {
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.10526315789473684,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.47368421052631576,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.07017543859649122,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.22807017543859648,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.017543859649122806,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.07017543859649122,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.017543859649122806,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.017543859649122806
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.10526315789473684,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.47368421052631576,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.07017543859649122,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.22807017543859648,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.017543859649122806,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.07017543859649122,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.017543859649122806,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.017543859649122806
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.4111111111111111,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.16666666666666666,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.044444444444444446,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.16666666666666666,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.07777777777777778,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.03333333333333333,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.044444444444444446,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.011111111111111112,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": 0.022222222222222223,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.011111111111111112,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.011111111111111112
+    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.4111111111111111,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.16666666666666666,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.044444444444444446,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.16666666666666666,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.07777777777777778,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.03333333333333333,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.044444444444444446,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; 10 < wspd; ": 0.011111111111111112,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": 0.022222222222222223,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.011111111111111112,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.011111111111111112
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.26666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.25,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.13333333333333333,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.016666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.11666666666666667,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.11666666666666667,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.03333333333333333,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.016666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.016666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.016666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": 0.016666666666666666
+    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.26666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.25,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.13333333333333333,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.016666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.11666666666666667,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.11666666666666667,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.03333333333333333,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.016666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.016666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.016666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": 0.016666666666666666
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.09558823529411764,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.03676470588235294,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.0661764705882353,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.04411764705882353,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.375,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.23529411764705882,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.04411764705882353,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.022058823529411766,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.022058823529411766,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.007352941176470588,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.007352941176470588,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.014705882352941176,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.014705882352941176,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.007352941176470588,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.007352941176470588
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.09558823529411764,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.03676470588235294,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.0661764705882353,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.04411764705882353,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.375,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.23529411764705882,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.04411764705882353,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.022058823529411766,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.022058823529411766,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.007352941176470588,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.007352941176470588,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.014705882352941176,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.014705882352941176,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.007352941176470588,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.007352941176470588
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.37272727272727274,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.09090909090909091,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.14545454545454545,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.00909090909090909,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.2636363636363636,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.01818181818181818,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.03636363636363636,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.00909090909090909,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": 0.00909090909090909,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.01818181818181818,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 5 < wspd <= 10; | ": 0.00909090909090909,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.01818181818181818
+    "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.37272727272727274,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.09090909090909091,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.14545454545454545,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.00909090909090909,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.2636363636363636,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.01818181818181818,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.03636363636363636,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.00909090909090909,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": 0.00909090909090909,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.01818181818181818,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 5 < wspd <= 10; ": 0.00909090909090909,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.01818181818181818
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.4942528735632184,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.14942528735632185,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.06321839080459771,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.028735632183908046,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.05747126436781609,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.005747126436781609,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.022988505747126436,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.005747126436781609,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.08620689655172414,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.034482758620689655,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.022988505747126436,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.005747126436781609,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": 0.005747126436781609,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.005747126436781609,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.005747126436781609,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.005747126436781609
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.4942528735632184,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.14942528735632185,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.06321839080459771,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.028735632183908046,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.05747126436781609,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.005747126436781609,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.022988505747126436,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.005747126436781609,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.08620689655172414,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.034482758620689655,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.022988505747126436,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.005747126436781609,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": 0.005747126436781609,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.005747126436781609,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.005747126436781609,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.005747126436781609
     },
-    "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.25,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.25,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.25,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.125,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.125
+    "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.25,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.25,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.25,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.125,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.125
     },
-    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.036585365853658534,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.2804878048780488,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.3048780487804878,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.13414634146341464,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.14634146341463414,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.012195121951219513,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.012195121951219513,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.04878048780487805,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.012195121951219513,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.012195121951219513
+    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.036585365853658534,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.2804878048780488,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.3048780487804878,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.13414634146341464,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.14634146341463414,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.012195121951219513,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.012195121951219513,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.04878048780487805,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.012195121951219513,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.012195121951219513
     },
-    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.35714285714285715,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.14285714285714285,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.21428571428571427,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.07142857142857142,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.07142857142857142,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.07142857142857142,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.07142857142857142
+    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.35714285714285715,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.14285714285714285,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.21428571428571427,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.07142857142857142,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.07142857142857142,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.07142857142857142,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.07142857142857142
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.2727272727272727,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.18181818181818182,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.18181818181818182,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.09090909090909091,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.18181818181818182,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.09090909090909091
+    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.2727272727272727,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.18181818181818182,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.18181818181818182,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.09090909090909091,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.18181818181818182,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.09090909090909091
     },
-    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.09090909090909091,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.36363636363636365,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.18181818181818182,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.050505050505050504,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.010101010101010102,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.0707070707070707,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.010101010101010102,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.04040404040404041,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.010101010101010102,
-        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.06060606060606061,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.04040404040404041,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.020202020202020204,
-        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.010101010101010102,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.010101010101010102,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.010101010101010102,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.010101010101010102,
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.010101010101010102
+    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.09090909090909091,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.36363636363636365,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.18181818181818182,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.050505050505050504,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.010101010101010102,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.0707070707070707,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.010101010101010102,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.04040404040404041,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": 0.010101010101010102,
+        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.06060606060606061,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.04040404040404041,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.020202020202020204,
+        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.010101010101010102,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; wspd <= 5; ": 0.010101010101010102,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.010101010101010102,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.010101010101010102,
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.010101010101010102
     },
-    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.08227848101265822,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.5632911392405063,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.16455696202531644,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.13924050632911392,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.012658227848101266,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.012658227848101266,
-        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.006329113924050633,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.006329113924050633,
-        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 0 < wspd <= 5; | ": 0.006329113924050633,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.006329113924050633
+    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.08227848101265822,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.5632911392405063,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.16455696202531644,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.13924050632911392,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.012658227848101266,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.012658227848101266,
+        "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.006329113924050633,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.006329113924050633,
+        "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; wspd <= 5; ": 0.006329113924050633,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.006329113924050633
     },
-    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.3125,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.1875,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.1875,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.125,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.0625,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; 0 < prcp <= 5; 10 < wspd; | ": 0.0625,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.0625
+    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.3125,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.1875,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.1875,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.125,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.0625,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; 0 < prcp <= 5; 10 < wspd; ": 0.0625,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.0625
     },
-    "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": {
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.45454545454545453,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.09090909090909091,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.36363636363636365,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.09090909090909091
+    "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": {
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.45454545454545453,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.09090909090909091,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.36363636363636365,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.09090909090909091
     },
-    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.4,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.1,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.3,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.2
+    "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.4,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.1,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.3,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.2
     },
-    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": {
-        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.6666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.3333333333333333
+    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": {
+        "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.6666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.3333333333333333
     },
-    "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.1,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.5,
-        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.1,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.2,
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.1
+    "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.1,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.5,
+        "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.1,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.2,
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.1
     },
-    "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": {
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.25,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 0.125,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.375,
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.125,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.125
+    "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": {
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.25,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 0.125,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": 0.375,
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 0.125,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.125
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 0 < wspd <= 5; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.25,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 0 < wspd <= 5; | ": 0.25,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.25,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.25
+    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; wspd <= 5; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.25,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; wspd <= 5; ": 0.25,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.25,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.25
     },
-    "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.6666666666666666,
-        "25 < tavg; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 0.3333333333333333
+    "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.6666666666666666,
+        "25 < tavg; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 0.3333333333333333
     },
-    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 1.0
+    "18 < tavg <= 25; 18 < tmax <= 25; tmin <= 18; prcp == 0; wspd <= 5; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; wspd <= 5; ": 1.0
     },
-    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.5,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.25,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.25
+    "tavg <= 18; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.5,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.25,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.25
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 5 < wspd <= 10; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 1.0
+    "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 5 < wspd <= 10; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 1.0
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.5,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.16666666666666666,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.16666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.16666666666666666
+    "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.5,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.16666666666666666,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.16666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.16666666666666666
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.5,
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; | ": 0.5
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 10 < wspd; ": 0.5,
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 10 < wspd; ": 0.5
     },
-    "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": {
-        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 1.0
+    "18 < tavg <= 25; 18 < tmax <= 25; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": {
+        "18 < tavg <= 25; 25 < tmax; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 1.0
     },
-    "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": {
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 5 < wspd <= 10; | ": 1.0
+    "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": {
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 5 < wspd <= 10; ": 1.0
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 5 < wspd <= 10; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 1.0
+    "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 5 < wspd <= 10; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 1.0
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; | ": 0.2857142857142857,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.42857142857142855,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": 0.14285714285714285,
-        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; 0 < wspd <= 5; | ": 0.14285714285714285
+    "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 5 < wspd <= 10; ": 0.2857142857142857,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.42857142857142855,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": 0.14285714285714285,
+        "tavg <= 18; tmax <= 18; tmin <= 18; prcp == 0; wspd <= 5; ": 0.14285714285714285
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 1.0
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 1.0
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 10 < prcp; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 1.0
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 10 < prcp; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 1.0
     },
-    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; | ": {
-        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; | ": 0.6666666666666666,
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 0.3333333333333333
+    "tavg <= 18; 18 < tmax <= 25; tmin <= 18; 0 < prcp <= 5; 10 < wspd; ": {
+        "tavg <= 18; 18 < tmax <= 25; tmin <= 18; prcp == 0; 5 < wspd <= 10; ": 0.6666666666666666,
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 0.3333333333333333
     },
-    "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; | ": {
-        "18 < tavg <= 25; 25 < tmax; 18 < tmin <= 25; prcp == 0; 10 < wspd; | ": 1.0
+    "25 < tavg; 25 < tmax; tmin <= 18; prcp == 0; 10 < wspd; ": {
+        "18 < tavg <= 25; 25 < tmax; 18 < tmin; prcp == 0; 10 < wspd; ": 1.0
     },
-    "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; | ": {
-        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; | ": 1.0
+    "tavg <= 18; tmax <= 18; tmin <= 18; 5 < prcp <= 10; 10 < wspd; ": {
+        "tavg <= 18; tmax <= 18; tmin <= 18; 10 < prcp; 10 < wspd; ": 1.0
     }
 }

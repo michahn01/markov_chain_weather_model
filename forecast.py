@@ -1,33 +1,176 @@
 import markov
 import json
+import numpy as np
 from termcolor import colored
 
-def make_predictions(params, markov_model):
-    keywords = {
-        "tavg" : "avg temp of the day in °C",
-        "tmax" : "max temp of the day in °C",
-        "tmin" : "min temp of the day in °C",
-        "prcp" : "level of precipitation in mm",
-        "wspd" : "avg windspeed of the day in km/h"
+def make_predictions(state, params, markov_model, generic_model, num_days):   
+    print(colored("\nPREDICTIONS\n", "cyan", attrs=["bold"]), end="")
+
+    all_possibilities = markov.construct_states_vector_template(params)
+    generic_vector = markov.construct_generic_probability_vector(generic_model, all_possibilities)
+    transition_matrix = markov.construct_transition_matrix(markov_model, all_possibilities, generic_vector)
+    state_prob_vector = markov.construct_state_probability_vector(markov_model, all_possibilities, state, generic_vector)
+
+    prediction_keywords = {
+        "18 < tavg <= 25": "Moderate average temperature",
+        "tavg <= 18": "Cold average temperature",
+        "25 < tavg": "Hot average temperature",
+        "18 < tmin": "Warm minimum temperature",
+        "tmin <= 18": "Cold minimum temperature",
+        "18 < tmax <= 25": "Moderate maximum temperature",
+        "tmax <= 18": "Cold maximum temperature",
+        "25 < tmax": "Hot maximum temperature",
+        "prcp == 0": "No rain",
+        "0 < prcp <= 5": "A slight drizzle",
+        "5 < prcp <= 10": "Moderate rain",
+        "10 < prcp": "Lots of rain",
+        "wspd <= 5": "Low wind speed",
+        "5 < wspd <= 10": "Moderate wind speed",
+        "10 < wspd": "High wind speed"
     }
 
-    input_params = [
-        ["tavg" , None],
-        ["tmax" , None],
-        ["tmin" , None],
-        ["prcp" , None],
-        ["wspd" , None]
-    ]
+    
+    for i in range(num_days):
+        print(colored(f"\nOn Day {i+1}: \n", "white", attrs=["bold"]), end="")
+        indices = sorted(range(len(state_prob_vector)), key=lambda i: state_prob_vector[i], reverse=True)[:10]
+        for index in indices:
+            prob = state_prob_vector[index]*100
+            if prob < 0.5: continue
+            print("---", end="")
+            print(colored(f"{prob}%", "white", attrs=["bold"]), end="")
+            print(" chance of:")
 
-    print(colored("\nMaking Forecasts\n", "cyan", attrs=["bold"]))
+            info = all_possibilities[index]
+            info_bits = info[:-2].split("; ")
 
-    for input_param in input_params:
-        if input_param[0] in params:
-            input_param[1] = input(f"What is the initial {keywords[input_param[0]]} ({input_param[0]})? ")
+            for i in range(len(info_bits) - 1):
+                print(f"   * {prediction_keywords[info_bits[i]]} ({info_bits[i]}), with")
+            print(f"   * {prediction_keywords[info_bits[len(info_bits) - 1]]} ({info_bits[len(info_bits) - 1]})")
+            # print(f"     {info}")
+        print("--- and some more possibilities of lower likelihoods")
+        state_prob_vector = np.dot(transition_matrix, state_prob_vector)
 
-    weather_info = [(input_param[0], input_param[1]) for input_param in input_params if input_param[1] != None]
-    classified_weather_info = markov.classify_weather_info(weather_info)
+    options_after_prediction(markov_model, params)
 
+def print_warning():
+    warning = """
+* A note about the number of parameters:
+
+TLDR: 
+more parameters -> 
+model more quickly decays into a stagnant state when making long-run predictions.
+
+Full Explanation:
+
+Because not all theoretically possible weather conditions have occurred 
+in the sampled data (San Jose weather data from 2014 to 2022), some state 
+transition probabilities are zero. This becomes problematic if there is a 
+need to compute probabilities for data points unobserved in the sample. To 
+counter this, a Laplace smoothing could be used, but that would assume a 
+uniform distribution of state probabilities. With weather, we know that's 
+not the case, so I instead used a form of smoothing somewhat similar in principle 
+to the Maximum Likelihood Estimation (MLE), where for any unobserved state the 
+model assumes that the state transition probabilities are identical to those found 
+in the sample itself (hence maximizing the joint-likelihood function). 
+
+Using more parameters at once means juggling more theoretically possible 
+weather conditions, which makes the model that much more dependent on the 
+smoothing function described above. For example, if all possible parameters of 
+this model are used, there are 216 theoretically possible weather states, but only 
+34 weather states have actually been observed in the sample data. Because the 
+resulting transition matrix is sparse, more column vectors use the smoothing vector
+and thus have identical transition probabilities. As a result, when making long-run
+predictions the model decays into a stagnant state (a state where there is little
+potential for transition into another state) more quickly.
+"""
+
+    text = """
+Before proceeding, do you wish to read the warning about the 
+number of parameters used to train a model? [y/n]"""
+
+    print(text)
+
+    selection = input("Select a choice (enter y or n): ").strip()
+    while not (selection.lower() == "y" or selection.lower() == "n"):
+        selection = input(f"Please enter a valid choice. [y/n] ").strip()
+    if selection.lower() == "y":
+        print(warning)
+        selection = input("Press y to proceed: ").strip()
+        while not (selection.lower() == "y"):
+            selection = input(f"Please enter a valid choice. [y] ").strip()
+
+def setup_predictions(params, markov_model):
+    keywords = {
+        "tavg" : "avg temp today in °C",
+        "tmax" : "max temp today in °C",
+        "tmin" : "min temp today in °C",
+        "prcp" : "level of precipitation today in mm",
+        "wspd" : "avg windspeed today in km/h"
+    }
+
+    input_params = {
+        "tavg" : None,
+        "tmax" : None,
+        "tmin" : None,
+        "prcp" : None,
+        "wspd" : None
+    }
+
+    param_ranges = {
+        "tavg" : ["18 °C < tavg <= 25 °C", "tavg <= 18 °C", "25 °C < tavg"],
+        "tmin" : ["18 °C < tmin <= 25 °C", "tmin <= 18 °C", "25 °C < tmin"],
+        "tmax" : ["18 °C < tmax <= 25 °C", "tmax <= 18 °C", "25 °C < tmax"],
+        "prcp" : ["prcp == 0 mm", "0 mm < prcp <= 5 mm", "5 mm < prcp <= 10 mm", "10 mm < prcp"],
+        "wspd" : ["wspd <= 5 km/h", "5 km/h < wspd <= 10 km/h", "10 km/h < wspd"]
+    }
+
+    incompatible_ranges = {
+        "18 °C < tavg <= 25 °C" : ["25 °C < tmin", "tmax <= 18 °C"],
+        "tavg <= 18 °C" : ["18 °C < tmin <= 25 °C", "25 °C < tmin"],
+        "25 °C < tavg" : ["18 °C < tmax <= 25 °C", "tmax <= 18 °C"],
+
+        "18 °C < tmin <= 25 °C": ["tmax <= 18 °C", "tavg <= 18 °C"],
+        "tmin <= 18 °C" : [],
+        "25 °C < tmin": ["18 °C < tavg <= 25 °C", "tavg <= 18 °C", "18 °C < tmax <= 25 °C", "tmax <= 18 °C"],
+
+        "18 °C < tmax <= 25 °C" : ["25 °C < tavg", "25 °C < tmin"], 
+        "tmax <= 18 °C" : ["18 °C < tmin <= 25 °C", "25 °C < tmin", "18 °C < tavg <= 25 °C", "25 °C < tavg"], 
+        "25 °C < tmax" : []       
+    }
+
+    def convert(param_range):
+        if param_range == "18 °C < tmin <= 25 °C" or param_range == "25 °C < tmin":
+            param_range = "18 °C < tmin"
+        return param_range.replace(" °C", "").replace(" mm", "").replace(" km/h", "") + "; "
+
+    print(colored("\nMAKING FORECASTS\n", "cyan", attrs=["bold"]))
+
+    print("To predict the weather in the future, we will start by describing today's weather.")
+
+    for param in params:
+        print(colored(f"\n{param}) ", "white", attrs=["bold"]), end="")
+        print(f"Select a range for {keywords[param]} ({param}): \n")
+        i = 1
+        for value_range in param_ranges[param]:
+            print(f"[{i}] {value_range}\n")
+            i += 1
+        selection = input(f"Choose an option (enter {','.join([str(j) for j in range(1, i)])}): ").strip()
+        while selection not in [str(j) for j in range(1, i)]:
+            selection = input(f"Please choose a valid option (enter {','.join([str(j) for j in range(1, i)])}): ").strip()
+        selection = param_ranges[param][int(selection) - 1]
+        input_params[param] = convert(selection)
+
+        # removing incompatible possibilities
+        if selection in incompatible_ranges:
+            for ir in incompatible_ranges[selection]:
+                for range_param in param_ranges:
+                    try:
+                        param_ranges[range_param].remove(ir)
+                    except:
+                        pass
+
+    classified_weather_info = "".join([input_params[param] for param in params if input_params[param] != None])
+    # print(classified_weather_info)
     num_days = -1
     while True:
         try:
@@ -39,43 +182,36 @@ def make_predictions(params, markov_model):
         except ValueError:
             print("Please enter a valid integer greater than 0.")
 
+    markov_model, generic_model = markov.make_markov_model("data/san_jose_weather.csv", params, 1)
+    make_predictions(classified_weather_info, params, markov_model, generic_model, num_days)
     
-#     for i in range(num_days):
-#         print(colored(f"\nOn Day {i + 1} ({classified_weather_info[:-4]}): ", "white", attrs=["bold"]))
-#         if classified_weather_info not in markov_model:
-#             print(f"\nMeteorological data for San Jose from 2014 ~ 2022 is insufficient to accurately \n\
-# predict weather on Day {i + 1} and beyond for the selected set of parameters. To predict \n\
-# further into the future, try loading up a model trained on fewer parameters. However, considering the \n\
-# parameters on Day {i + 1} independently can give us some guesses: \n")
-#             single_params = classified_weather_info.split("; ")[:-1]
-#             single_param_models = json.load(open("data/pre_built_models/single_parameters.json"))
-#             for data in single_params:
-#                 param = ""
-#                 for letter in data:
-#                     if letter.isalpha(): param += letter
-#                 print(f"Generally, a day where {data} has: ")
-#                 for possibility, probability in single_param_models[param][data + "; | "].items():
-#                     print(f"--- {probability * 100}% chance of {possibility[:-4]} the next day")
-#                 print()
-#             break
-
-#         for possibility, probability in markov_model[classified_weather_info].items():
-#             print(f"--- {probability * 100}% chance of {possibility[:-4]} the next day")
-        
-#         old_state = classified_weather_info
-#         classified_weather_info = max(markov_model[classified_weather_info], key=markov_model[classified_weather_info].get)
-#         if classified_weather_info == old_state:
-#             print(f"\nOn Day {i + 1} the most likely weather the next day is equivalent to the current weather. \nThis means \
-# that the Markov chain model has entered a state of absorbent/recurrent behavior, which the system cannot escape. \nRunning \
-# the forecast any further would yield the same prediction (the current weather) without any transitions.\n")
-#             break
-
+def options_after_prediction(markov_model, params):
+    print("\n\nYou have reached the end of the model's forecasts.")
+    print("Select [n] to quit the program or [y] to try something else.")
+    selection = input("\nEnter y or n: ").strip()
+    while not (selection.lower() == "y" or selection.lower() == "n"):
+            selection = input(f"Please enter a valid choice. [y/n] ").strip()
+    if selection.lower() == "n":
+        quit()   
+    print("""
+Options:
+[1] Run forecasts again with the same model.
+[2] Return to the main menu.
+""")
+    selection = input("Enter 1 or 2: ").strip()
+    while selection not in ["1", "2"]:
+        selection = input("Please enter a valid choice (enter 1 or 2): ").strip()
+    selection = int(selection)
+    if selection == 1:
+        setup_predictions(params, markov_model)
+        return
+    main_menu()
 
 def use_pre_built_model():
-    print(colored("\nUsing a Pre-Built Model", "cyan", attrs=["bold"]))
-    text = """
-Instructions:
+    print(colored("\nUSING A PRE-BUILT MODEL", "cyan", attrs=["bold"]))
 
+    print(colored("\nINSTRUCTIONS", "white", attrs=["bold"]))
+    print("""
 Choose a pre-built model to use. Each model has been trained on a different 
 set of parameters (note: a model cannot make predictions about parameters it 
 was not trained on). 
@@ -94,14 +230,37 @@ Available Pre-Built Models:
 [3] Model #3: trained on "tavg", "prcp", and "wspd" 
 [4] Model #4: trained on "tavg", "tmax", "tmin", and "prcp"
 [5] Model #5: trained on "tavg", "tmax", "tmin", "prcp", and "wspd"
+""")
+
+    print_warning()
+
+    print(colored("\nPICK A MODEL", "white", attrs=["bold"]))
+
+    setup_text = """
+Keywords:
+"tavg" -> avg temp of day in °C
+"tmax -> max temp of day in °C
+"tmin" -> min temp of day in °C
+"prcp" -> level of precipitation in mm
+"wspd" -> avg windspeed of day in km/h
+
+Available Pre-Built Models:
+
+[1] Model #1: trained on "tavg" and "tmax" 
+[2] Model #2: trained on "tavg", "tmax", and "prcp"
+[3] Model #3: trained on "tavg", "prcp", and "wspd" 
+[4] Model #4: trained on "tavg", "tmax", "tmin", and "prcp"
+[5] Model #5: trained on "tavg", "tmax", "tmin", "prcp", and "wspd"
+[0] Quit the program
 
 Select an option (enter 1, 2, 3, 4, 5, or 0): """
-    selection = int(input(text))
-    while selection not in [1, 2, 3, 4, 5, 0]:
-        selection = int(input("Please enter a valid choice (enter 1, 2, 3, 4, 5, or 0): "))
+    selection = input(setup_text).strip()
+    while selection not in ["1", "2", "3", "4", "5", "0"]:
+        selection = input("Please enter a valid choice (enter 1, 2, 3, 4, 5, or 0): ").strip()
+    selection = int(selection)
     if selection == 0:
         quit()
-
+    
     pre_built_models = {
         1 : ("tavg", "tmax"),
         2: ("tavg", "tmax", "prcp"),
@@ -113,10 +272,10 @@ Select an option (enter 1, 2, 3, 4, 5, or 0): """
     file_name = "_".join(param for param in pre_built_models[selection]) + ".json"
     markov_model = json.load(open("data/pre_built_models/" + file_name))
 
-    make_predictions(pre_built_models[selection], markov_model)
+    setup_predictions(pre_built_models[selection], markov_model)
 
 def make_new_model_and_predict():
-    print(colored('\nGenerating a New Model\n', "cyan", attrs=["bold"]))
+    print(colored('\nGENERATING A NEW MODEL', "cyan", attrs=["bold"]))
     input_params = [
         ["tavg" , False],
         ["tmax" , False],
@@ -131,41 +290,53 @@ def make_new_model_and_predict():
         "prcp" : "level of precipitation in mm",
         "wspd" : "avg windspeed of the day in km/h"
     }
+
+    print("\nAvailable parameters: \n")
+    for key, val in keywords.items():
+        print(f"{key}: {val}")
+    
+    print()
+
+    print_warning()
+
     for param in input_params:
-        selection = input(f"Do you wish to include {keywords[param[0]]} ({param[0]}) as a parameter? [y/n] ")
-        while not (selection.strip().lower() == "y" or selection.strip().lower() == "n"):
-            selection = input(f"Please enter a valid choice. [y/n] ")
-        if selection.strip().lower() == "y":
+        selection = input(f"\nDo you wish to include {keywords[param[0]]} ({param[0]}) as a parameter? [y/n] ").strip()
+        while not (selection.lower() == "y" or selection.lower() == "n"):
+            selection = input(f"Please enter a valid choice. [y/n] ").strip()
+        if selection.lower() == "y":
             param[1] = True
 
-    selection = input("\nConfiguration complete. Enter y to continue or n to quit. ")
-    while not (selection.strip().lower() == "y" or selection.strip().lower() == "n"):
-            selection = input(f"Please enter a valid choice. [y/n] ")
-    if selection.strip().lower() == "n":
+    selection = input("\nConfiguration complete. Enter y to continue or n to quit. ").strip()
+    while not (selection.lower() == "y" or selection.lower() == "n"):
+            selection = input(f"Please enter a valid choice. [y/n] ").strip()
+    if selection.lower() == "n":
         quit()        
     print("\nGenerating Model...")
     params = [param[0] for param in input_params if param[1]]
     markov_model = markov.make_markov_model("data/san_jose_weather.csv", params, 1)
     print("\nMarkov Model built!")
-    make_predictions(params, markov_model)
+    setup_predictions(params, markov_model)
 
 
 
 
 
 def main_menu():
+
     print(colored('\nMarkov-Chain Weather Forecast Model', "cyan", attrs=["bold"]))
-    
-    text = """To get started, please select one of the following:
+
+    text = """
+To get started, please select one of the following:
 
 [1] Use a pre-built model to forecast weather.
 [2] Newly generate a model with parameters of your choice.
 [0] Quit the program.
 
 Select an option (enter 1, 2, or 0): """
-    selection = int(input(text))
-    while selection not in [1, 2, 0]:
-        selection = int(input("Please enter a valid choice (enter 1, 2, or 0): "))
+    selection = input(text).strip()
+    while selection not in ["1", "2", "0"]:
+        selection = input("Please enter a valid choice (enter 1, 2, or 0): ").strip()
+    selection = int(selection)
     if selection == 0:
         quit()
     elif selection == 1:
