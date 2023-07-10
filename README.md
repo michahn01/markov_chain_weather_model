@@ -52,7 +52,7 @@ You will then be prompted to pick a model.
 
 Each model is trained on a different set of parameters. In terms of the Markov chain, every combination of parameters (e.g., avg temperature range, no rain or yes rain) represents a "state" of the system. 
 
-Once you pick a model, you'll begin making forecasts with the model. From here on, the process is the same as it is from after [Option 2: Training a New Model](https://github.com/michahn01/markov_chain_weather_model/blob/master/README.md#option-2-training-a-new-model), so skip ahead to [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#making-forecasts) to continue reading how to use the program.
+Once you pick a model, you'll begin making forecasts with the model. From here on, the process is the same as it is from after [Option 2: Training a New Model](https://github.com/michahn01/markov_chain_weather_model/tree/master#option-2-training-a-new-model), so skip ahead to [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/tree/master#making-forecasts) to continue reading how to use the program.
 
 ### Option 2: Training a New Model
 
@@ -66,7 +66,7 @@ You'll then be prompted to decide which parameters you want to include when trai
 
 <img width="628" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/6714f74b-9c35-48c2-8802-4df54ce3a13d">
 
-Upon deciding all your parameters, the model will be generated and you will be prompted to the next section, [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#making-forecasts), which is the same as after completing [Option 1: Using a Pre-Trained Model](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#option-1-using-a-pre-trained-model). 
+Upon deciding all your parameters, the model will be generated and you will be prompted to the next section, [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/tree/master#making-forecasts), which is the same as after completing [Option 1: Using a Pre-Trained Model](https://github.com/michahn01/markov_chain_weather_model/tree/master#option-1-using-a-pre-trained-model). 
 
 ### Making Forecasts
 
