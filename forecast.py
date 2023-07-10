@@ -177,7 +177,10 @@ def setup_predictions(params, markov_model):
     num_days = -1
     while True:
         try:
-            num_days = int(input("Enter desired number of days' predictions to be attempted from initial state: "))
+            enter_txt = """
+Enter desired number of days' predictions to be
+attempted from initial state (suggested: 1 ~ 10): """
+            num_days = int(input(enter_txt))
             if num_days > 0:
                 break
             else:
