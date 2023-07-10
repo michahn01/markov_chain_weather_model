@@ -7,7 +7,7 @@ Step 1) Ensure that you have Python3 and Pip3 installed on your machine.
 
 Step 2) Open a terminal window.
 
-Step 3) Clone this repository inside any location of choice on your machine and enter the project directory by running the following two commands inside the terminal:
+Step 3) Clone this repository inside any location of choice on your machine and enter the project directory, by running the following two commands inside the terminal:
 ```
 git clone https://github.com/michahn01/markov_chain_weather_model
 
@@ -50,9 +50,9 @@ You will then be prompted to pick a model.
 
 <img width="494" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/f356a0d5-495b-4fe6-afec-275c32f7596f">
 
-Each model is trained on a different set of parameters. In terms of the Markov chain, every combination of parameters (e.g., temperature range, no rain or yes rain) represents a "state" of the system. Choosing a model with more parameters might capture more complex patterns, but because more parameters means more hypothetically possible "combinations" of states (many of which may not have occured in the training data) and thus a more sparse transition matrix that has to be filled with more of the same generic vectors, a model with more parameters might also be quicker to decay into a stagnant state when making long-term predictions.
+Each model is trained on a different set of parameters. In terms of the Markov chain, every combination of parameters (e.g., avg temperature range, no rain or yes rain) represents a "state" of the system. 
 
-Once you pick a model, you'll begin making forecasts with the model. From here on, the process is the same as it is from after [Option 2: Training a New Model](), so skip ahead to Making Forecasts to continue reading how to use the program.
+Once you pick a model, you'll begin making forecasts with the model. From here on, the process is the same as it is from after [Option 2: Training a New Model](https://github.com/michahn01/markov_chain_weather_model/blob/master/README.md#option-2-training-a-new-model), so skip ahead to [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#making-forecasts) to continue reading how to use the program.
 
 ### Option 2: Training a New Model
 
@@ -66,7 +66,7 @@ You'll then be prompted to decide which parameters you want to include when trai
 
 <img width="628" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/6714f74b-9c35-48c2-8802-4df54ce3a13d">
 
-Upon deciding all your parameters, the model will be generated and you will be prompted to the next section, Making Forecasts, which is the same as after completing Option 1: Using a Pre-Trained Model. 
+Upon deciding all your parameters, the model will be generated and you will be prompted to the next section, [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#making-forecasts), which is the same as after completing [Option 1: Using a Pre-Trained Model](https://github.com/michahn01/markov_chain_weather_model/edit/master/README.md#option-1-using-a-pre-trained-model). 
 
 ### Making Forecasts
 
@@ -85,6 +85,6 @@ And voila! The model will make as many forecasts as you requested.
 <img width="461" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/ad391c57-d7fa-4e90-93ee-06531db59408">
 
 ## Using your Own Data
-By default, the project uses weather data for San Jose from 2014 ~ 2022, gathered in Meteostat (https://meteostat.net/en/place/us/san-jose?s=KSJC0&t=2023-06-26/2023-07-03). If you would like to use your own data when training the model, write a CSV file with "date", "tavg", "tmin", "tmax", "prcp", and "wspd". Date should be structured as yyyy-mm-dd. You can include other tags, but the data-parser will ignore anything that it wasn't explicitly instructed to look for, so make sure to modify the data-parsing function (classify_weather_info(weather_info) in markov.py) if you intend to introduce additional parameters.
+By default, the project uses weather data for San Jose from 2014 ~ 2022, gathered in Meteostat (https://meteostat.net/en/place/us/san-jose?s=KSJC0&t=2023-06-26/2023-07-03). If you would like to use your own data when training the model, write a CSV file with "date", "tavg", "tmin", "tmax", "prcp", and "wspd". Date should be structured as yyyy-mm-dd. You can include other tags, but the data-parser will ignore anything that it wasn't explicitly instructed to look for, so make sure to modify the data-parsing function (which is the classify_weather_info(weather_info) in [markov.py](markov.py) if you intend to introduce additional parameters.
 
-Once you have your CSV file, copy and paste the file into the "data" subdirectory and rename the file paths in the appropriate functions in forecast.py.
+Once you have your CSV file, copy and paste the file into the [data](data) subdirectory and rename the file paths in the appropriate functions in [forecast.py](forecast.py).
