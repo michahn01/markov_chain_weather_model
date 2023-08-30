@@ -11,7 +11,7 @@ Step 3) Clone this repository inside any location of choice on your machine and 
 ```
 git clone https://github.com/michahn01/markov_chain_weather_model
 
-cd markov_chain_weather model
+cd markov_chain_weather_model
 ```
 
 Step 4) Install the necessary dependencies with the following command:
