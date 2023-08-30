@@ -28,7 +28,7 @@ python3 forecast.py
 
 When you start the program, you are given 2 options: 
 
-[1] Multiple versions of the model have been trained and saved as JSON files under [data](data/pre_built_models). You can select a version make forecasts with it. Each build was trained on the same data but with different parameters (i.e., each build looks for different sets of patterns in the training data).
+[1] Select and make forecasts with one of multiple versions of the model which were trained and saved as JSON files under [data](data/pre_built_models). Each version was trained on the same data but with different parameters (i.e., each build looks for different sets of patterns in the training data).
 
 [2] Train your own new version of the model, on the same data as the pre-trained builds, but with parameters of your choice.
 
