@@ -28,17 +28,17 @@ python3 forecast.py
 
 When you start the program, you are given 2 options: 
 
-[1] Load up one of the pre-trained, pre-built models saved as a JSON file under [data](data/pre_built_models) and make forecasts with it. Each model has been trained on the same data but with different parameters (i.e., each model looks for different sets of patterns in the training data).
+[1] Multiple versions of the model have been trained and saved as JSON files under [data](data/pre_built_models). You can select a version make forecasts with it. Each build was trained on the same data but with different parameters (i.e., each build looks for different sets of patterns in the training data).
 
-[2] Train your own new model, on the same data as the pre-trained models, but with parameters of your choice.
+[2] Train your own new version of the model, on the same data as the pre-trained builds, but with parameters of your choice.
 
 <img width="546" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/875a2224-52bf-47d3-a4b6-ab1bfa4ef79f">
 
 Here's a more detailed explanation of each option.
 
-### Option 1: Using a Pre-Trained Model
+### Option 1: Using a Pre-Trained Build
 
-If you decide to use a pre-trained model, you will be faced with the following menu:
+If you decide to use a pre-trained version of the model, you will be faced with the following menu:
 
 <img width="552" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/7913128f-6f93-4c5c-8b3e-e92098fb45d6">
 
@@ -54,9 +54,9 @@ Each model is trained on a different set of parameters. In terms of the Markov c
 
 Once you pick a model, you'll begin making forecasts with the model. From here on, the process is the same as it is from after [Option 2: Training a New Model](https://github.com/michahn01/markov_chain_weather_model/tree/master#option-2-training-a-new-model), so skip ahead to [Making Forecasts](https://github.com/michahn01/markov_chain_weather_model/tree/master#making-forecasts) to continue reading how to use the program.
 
-### Option 2: Training a New Model
+### Option 2: Training a New Build
 
-In the starting menu you can choose to train a new model instead, which'll lead you to this screen.
+In the starting menu you can choose to train a new version of the model instead, which'll lead you to this screen.
 
 <img width="440" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/0cfe83f9-dddf-4cff-ad6f-3a2709e4f667">
 
