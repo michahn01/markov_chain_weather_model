@@ -83,8 +83,8 @@ if all possible parameters of this model are used, there are 216 theoretically p
 weather states, but only 34 weather states have actually been observed in the sample data. 
 Because the resulting transition matrix is sparse, more column vectors use the same "filler" 
 vector (the vector whose state transition probabilities mirror the sample's distribution) 
-and thus have identical transition probabilities. As a result, when making long-run predictions 
-the model more quickly decays into a steady state with very little variety. 
+and thus have identical transition probabilities. As a result, when making long-run 
+predictions the model more quickly decays into a steady state with very little variety. 
 
 To give an analogy, imagine that you have four doors to choose from (each door analogous to 
 transitioning into a particular weather state in the Markov chain). Each each door leads to a 
