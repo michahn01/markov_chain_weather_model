@@ -58,33 +58,40 @@ def print_warning():
 
 TLDR: 
 more parameters -> 
-model more quickly decays into a stagnant state when making long-run predictions.
+model more quickly decays into a steady state when making long-run predictions.
 
 Full Explanation:
 
-Because not all theoretically possible weather conditions have occurred 
-in the sampled data (San Jose weather data from 2014 to 2022), some state 
-transition probabilities are zero. This becomes problematic if there is a 
-need to compute probabilities for data points unobserved in the sample. To 
-counter this, a Laplace smoothing could be used, but that would assume a 
-uniform distribution of state probabilities. With weather, we know that's not 
-the case, so I instead used a form of smoothing somewhat similar in principle 
-to the Maximum Likelihood Estimation (MLE), where for any unobserved state 
-the probabilities of transitioning into some next state are determined
-simply based on the distribution of those states in the sample itself (hence 
-maximizing the joint-likelihood function). 
+For weather states that were never observed from 2014 to 2022, the model has no data
+to compute state transition probabilities (i.e., it has no way to tell what 
+weather is likely next). This becomes problematic if there's a 
+need to compute probabilities for weather unobserved in the sample. To 
+counter this, some filler values can be made up and used for the state transition
+probabilities of unobserved events. E.g., Laplace smoothing could be used, but 
+that would assume a uniform distribution of state probabilities. With weather, we 
+know that's not the case, so I instead used a form of smoothing somewhat similar 
+in principle to the Maximum Likelihood Estimation (MLE), where for any unobserved 
+state of weather the probabilities of transitioning into some next state are 
+simply set equal to the distribution of those states in the sample itself (by 
+definition, this makes the observed data most probable -- at 100% -- for the transition 
+probability vectors we make up, hence maximizing the joint-likelihood function). 
 
-Using more parameters at once means juggling more theoretically possible 
-weather conditions, which makes the model that much more dependent on the 
-mechanism described above. For example, if all possible parameters of 
-this model are used, there are 216 theoretically possible weather states, but only 
-34 weather states have actually been observed in the sample data. Because the 
-resulting transition matrix is sparse, more column vectors use the "generic" vector
-(the vector whose state transition probabilities mirror the sample's
-distribution) and thus have identical transition probabilities. As a result, 
-when making long-run predictions the model decays into a stagnant state 
-(a state where there is little potential for transition into another state) 
-more quickly.
+Using more parameters at once means dealing with more theoretically possible 
+weather conditions, which means there are more unobserved weather states whose transition
+probabilities have to be set equal to the "filler" values described above. For example, 
+if all possible parameters of this model are used, there are 216 theoretically possible 
+weather states, but only 34 weather states have actually been observed in the sample data. 
+Because the resulting transition matrix is sparse, more column vectors use the same "filler" 
+vector (the vector whose state transition probabilities mirror the sample's distribution) 
+and thus have identical transition probabilities. As a result, when making long-run predictions 
+the model more quickly decays into a steady state with very little variety. 
+
+To give an analogy, imagine that you have four doors to choose from (each door analogous to 
+transitioning into a particular weather state in the Markov chain). Each each door leads to a 
+unique place with four more unique doors, there'll be a lot of variety in where you end up. 
+But if three of the foor doors lead to then same place (analogous to using a lot of the identical 
+"filler" transition probabilities in the model), then there'll be a lot less variety in where 
+you might end up. 
 """
 
     text = """
