@@ -42,11 +42,7 @@ If you decide to use a pre-trained version of the model, you will be faced with 
 
 <img width="552" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/7913128f-6f93-4c5c-8b3e-e92098fb45d6">
 
-You can read the warning about the number of parameters used to train a model, if you wish:
-
-<img width="626" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/28a88add-9d26-460a-ad15-4a888c326184">
-
-You will then be prompted to pick a model. 
+You can read the warning about the number of parameters used to train a model, if you wish. You will then be prompted to pick a model. 
 
 <img width="494" alt="image" src="https://github.com/michahn01/markov_chain_weather_model/assets/113268235/f356a0d5-495b-4fe6-afec-275c32f7596f">
 
